@@ -1,6 +1,7 @@
 package Day05;
 
 import Helpers.InputReader;
+import Helpers.InvalidInputException;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 class Day05 {
-    public static void main(String[] args) throws FileNotFoundException, InvalidInstructionsException {
+    public static void main(String[] args) throws FileNotFoundException, InvalidInputException {
         Ship ship = processInput();
         ship.executeMoves();
         ship.printTopBoxes();

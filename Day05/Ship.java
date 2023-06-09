@@ -1,5 +1,7 @@
 package Day05;
 
+import Helpers.InvalidInputException;
+
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -12,13 +14,13 @@ public class Ship {
         this.moves = moves;
     }
 
-    public void executeMoves() throws InvalidInstructionsException {
+    public void executeMoves() throws InvalidInputException {
         for (Move move : moves) {
             Stack<Character> fromColumn = deck.get(move.from());
             Stack<Character> toColumn = deck.get(move.to());
             for (int i = 0; i < move.numBoxes(); i++) {
                 if (fromColumn.empty()) {
-                    throw new InvalidInstructionsException("Could not execute moves, needed to take box from empty column.");
+                    throw new InvalidInputException("Could not execute moves, needed to take box from empty column.");
                 }
 
                 Character box = fromColumn.pop();
